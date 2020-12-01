@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2020 at 09:02 PM
+-- Generation Time: Dec 01, 2020 at 06:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -51,7 +51,8 @@ CREATE TABLE `doctors` (
   `PhoneNumber` varchar(18) NOT NULL,
   `MedicalEstablishment` varchar(128) NOT NULL,
   `MedicalLocation` varchar(128) NOT NULL,
-  `userID` int(11) DEFAULT NULL
+  `UserName` varchar(255) DEFAULT NULL,
+  `Pass` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -82,10 +83,10 @@ CREATE TABLE `mood` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mood-patients`
+-- Table structure for table `mood-activity`
 --
 
-CREATE TABLE `mood-patients` (
+CREATE TABLE `mood-activity` (
   `ID` int(11) NOT NULL,
   `MoodID` int(11) NOT NULL,
   `ActivityID` int(11) NOT NULL
@@ -104,22 +105,8 @@ CREATE TABLE `patients` (
   `DOB` date NOT NULL,
   `Email` varchar(128) NOT NULL,
   `PhoneNumber` varchar(18) NOT NULL,
-  `userID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `ID` int(11) NOT NULL,
-  `User Name` varchar(32) NOT NULL,
-  `Email` varchar(128) NOT NULL,
-  `Password` varchar(128) NOT NULL,
-  `dORp` tinyint(1) NOT NULL,
-  `userID` int(11) NOT NULL
+  `UserName` varchar(255) DEFAULT NULL,
+  `Pass` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -151,21 +138,15 @@ ALTER TABLE `mood`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `mood-patients`
+-- Indexes for table `mood-activity`
 --
-ALTER TABLE `mood-patients`
+ALTER TABLE `mood-activity`
   ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `patients`
 --
 ALTER TABLE `patients`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -197,21 +178,15 @@ ALTER TABLE `mood`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `mood-patients`
+-- AUTO_INCREMENT for table `mood-activity`
 --
-ALTER TABLE `mood-patients`
+ALTER TABLE `mood-activity`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
