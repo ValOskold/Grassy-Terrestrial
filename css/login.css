@@ -66,7 +66,8 @@ label {
 
 input {
     display: block;
-    padding: 12px 60px;
+    padding: 12px 20px;
+    width: 28%;
     margin-top: 5px;
     margin-bottom: 40px;
     border-radius: 8px;
@@ -128,6 +129,8 @@ footer {
     font-weight: bold;
     background-color: #64C630;
     cursor: pointer;
+    width: 15%;
+    min-width: 200px;
 }
 
 #btn-submit:hover {

@@ -20,24 +20,75 @@
             
         </header>
         <!-- main content area begin -->
-        <main id="afterHeader">
+        <main>
             <!-- Enter information -->
-            <section id="">
+            <section id="section1">
                 <h1 id="please" class="h-center">Please select your role:</h1>
                 <p class="h-center medText">Sign up for your account as:</p>
-                <form action="" method="POST">
+                <form class="moreMarginBottom" action="" method="POST">
                     <fieldset class="flexbox" >
-                    <input type="button" name="doctor"  value="As Healthcare Practitioner"/>
+                    <a class="aBtn" href="#section2"><input id="btnDoctor" type="button" name="doctor" value="As Healthcare Practitioner"/></a>
                     <p class="h-center smallText">OR</p>
-                    <input type="button" name="patient" value="As Patient"/>
+                    <a class="aBtn" href="#section3"><input id="btnPatient" type="button" name="patient" value="As Patient"/></a>
                     </fieldset>
                     <hr>
                     <p id="noAccountP" class="h-center smallText">Already have an account? <a href="login.php">Log In here.</a></p>
-                    <input  id="btn-submit" type="submit" value="Log in" name="submit" required />
-                </form>
-                
+                </form>           
             </section>
-            
+    
+            <section id="section2">
+                <h1 class="h-center morePaddingTop">Healthcare Practitioner Sign Up</h1>
+                <form class="flexContainer" action="" method="POST">
+                    <fieldset class="flexbox" >
+                    <label for="Fname">First Name</label>
+                    <input class="flexChild" type="text" name="Fname" required />
+                    <label for="Lname">Last Name</label>
+                    <input class="flexChild" type="text" name="Lname" required />
+                    <label for="DOB">DOB</label>
+                    <input class="flexChild" type="text" name="DOB" required />
+                    <label for="Email">Email</label>
+                    <input class="flexChild" type="text" name="Email" required />
+                    <label for="Pass">Password</label>
+                    <input class="flexChild" type="text" name="Pass" required />
+                    </fieldset>
+                    <fieldset class="flexbox" >
+                    <label for="PhoneNumber">Phone Number</label>
+                    <input class="flexChild" type="text" name="PhoneNumber" required />
+                    <label for="MedicalEstablishment">Medical Establishment</label>
+                    <input class="flexChild" type="text" name="MedicalEstablishment" required />
+                    <label for="MedicalLocation">Medical Location</label>
+                    <textarea class="flexChild flexTall" name="MedicalLocation" rows="3" cols="29" required ></textarea>
+                    </fieldset>
+                </form>
+                <input  id="btn-submit" type="submit" value="Log in" name="submit" required />    
+
+            </section>
+            <section id="section3">
+                <h1 class="h-center morePaddingTop">Patient Sign Up</h1>
+                <form class="flexContainer" action="" method="POST">
+                    <fieldset class="flexbox" >
+                    <label for="Fname">First Name</label>
+                    <input class="flexChild" type="text" name="Fname" required />
+                    <label for="Lname">Last Name</label>
+                    <input class="flexChild" type="text" name="Lname" required />
+                    <label for="DOB">DOB</label>
+                    <input class="flexChild" type="text" name="DOB" required />
+                    <label for="Email">Email</label>
+                    <input class="flexChild" type="text" name="Email" required />
+                    <label for="Pass">Password</label>
+                    <input class="flexChild" type="text" name="Pass" required />
+                    </fieldset>
+                    <fieldset class="flexbox" >
+                    <label for="Assigned">Assigned Doctor / Clinic</label>
+                    <input class="flexChild" type="text" name="Assigned" required />
+                    <label for="PhoneNumber">Phone Number</label>
+                    <input class="flexChild" type="text" name="PhoneNumber" required />
+                    <label for="Address">Address</label>
+                    <textarea class="flexChild flexTall" name="Address" rows="3" cols="29" required ></textarea>
+                    </fieldset>
+                </form>
+                <input  id="btn-submit2" type="submit" value="Log in" name="submit" required />    
+            </section>
             <footer>            
             </footer>
         </main>
