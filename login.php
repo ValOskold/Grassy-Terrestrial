@@ -17,17 +17,19 @@
             <div class="h-center">
                 <a href="index.html"><img id="logo" src="images/logo.svg" alt="logo" /></a>
             </div>
-            
+
         </header>
         <!-- main content area begin -->
         <main>
             <!-- Enter information -->
             <section id="">
                 <h1 id="please" class="h-center">Please enter your login information:</h1>
-                <form action="" method="POST">
+                <form action="processing-Login.php" method="POST">
                     <fieldset class="flexbox" >
-                    <label for="email">Email</label>
-                    <input type="text" name="email" required />
+                    <label for="userName">Username</label>
+                    <input type="text" name="userName" required />
+                    <label for="cb">Doctor Sign in</label>
+                    <input type="checkbox" name="cb" />
                     <label for="password">Password</label>
                     <input type="text" name="password" required />
                     <a id="forgotA" class="h-center smallText" href="#">Forgot Email / Password?</a>
@@ -36,10 +38,10 @@
                     <p id="noAccountP" class="h-center smallText">Do not have an account? <a href="getstarted.php">Get Started here.</a></p>
                     <input  id="btn-submit" type="submit" value="Log in" name="submit" required />
                 </form>
-                
+
             </section>
-            
-            <footer>            
+
+            <footer>
             </footer>
         </main>
     </body>
