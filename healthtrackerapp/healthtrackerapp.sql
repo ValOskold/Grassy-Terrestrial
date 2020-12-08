@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 06:28 PM
+-- Generation Time: Dec 08, 2020 at 02:12 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -55,6 +55,14 @@ CREATE TABLE `doctors` (
   `Pass` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `doctors`
+--
+
+INSERT INTO `doctors` (`ID`, `Fname`, `Lname`, `DOB`, `Email`, `PhoneNumber`, `MedicalEstablishment`, `MedicalLocation`, `UserName`, `Pass`) VALUES
+(1, 'D', 'Acula', '0001-01-01', 'dr.acula@neverapples.com', '111-111-1111', 'You know the one', 'You know the place', 'd', ''),
+(2, 'D', 'Acula', '0001-01-01', 'dr.acula@neverapples.com', '111-111-1111', 'You know the one', 'You know the place', 'd', 'p');
+
 -- --------------------------------------------------------
 
 --
@@ -76,8 +84,7 @@ CREATE TABLE `dr-patients` (
 CREATE TABLE `mood` (
   `ID` int(11) NOT NULL,
   `DatePosted` timestamp NOT NULL DEFAULT current_timestamp(),
-  `Content` text NOT NULL,
-  `PatientID` int(11) NOT NULL
+  `Content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -108,6 +115,13 @@ CREATE TABLE `patients` (
   `UserName` varchar(255) DEFAULT NULL,
   `Pass` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `patients`
+--
+
+INSERT INTO `patients` (`ID`, `fName`, `lName`, `DOB`, `Email`, `PhoneNumber`, `UserName`, `Pass`) VALUES
+(1, 'l', 'l', '0000-00-00', 'f@hotmail.com', '905-432-1111', 'u', 'p');
 
 --
 -- Indexes for dumped tables
@@ -163,7 +177,7 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `dr-patients`
@@ -187,7 +201,7 @@ ALTER TABLE `mood-activity`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
