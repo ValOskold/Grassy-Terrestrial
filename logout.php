@@ -2,7 +2,6 @@
 	//logout.php
 	session_start();
  	session_destroy();
- 	//display logout message, return to landingpage
+	 //display logout message, return to landingpage
+	header("Location: index.html");
 ?>
-<p>You have successfully logged out</p>
-<a href="login.php">Login here</a>

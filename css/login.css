@@ -145,3 +145,11 @@ footer {
     margin-top: -30px;
     margin-bottom: 40px;
 }
+
+#logError {
+    display: block;
+    margin-left:auto;
+    margin-left:auto;
+    color: red;
+    text-align: center;
+}

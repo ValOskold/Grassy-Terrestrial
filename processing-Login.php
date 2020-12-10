@@ -5,19 +5,15 @@ session_start();
 //receive variables
 $userName = $_POST["userName"];
 $passWord = $_POST["password"];
-
-//put this part in a seperate file
-// $dsn = "mysql:host=localhost;dbname=healthtrackerapp;charset=utf8mb4";
-
-// $dbusername = "root";
-// $dbpassword = "";
-// $pdo = new PDO($dsn, $dbusername, $dbpassword);
+$successD = '{"success":"true"}';
+$successP = '{"success":"true2"}';
+$failed = '{"success":"false"}';
 
 //connect to database
 include('includes/db-config.php');
 
 
-if (isset($_POST['cb'])){
+if (isset($_POST["cb"])){
   //this means we should try logging in as a doctor
   $stmt = $pdo->prepare("SELECT * FROM `doctors`
 	WHERE `UserName` = '$userName'
@@ -31,27 +27,11 @@ if (isset($_POST['cb'])){
     //if there is a target
     $_SESSION["ID"] = $row["ID"];
     $_SESSION["ROLE"] = "Doctor";
-    ?>
-    <li>
-    <a href="dashboard_doctor.php">
-      <?php
-      echo("Log in Successful, click to visit dashboard!")
-      ?>
-    </a>
-    </li>
-    <?php
+    echo($successD);
   }
   else{
     //get the user to try to log in again, redirect to login page
-    ?>
-    <li>
-    <a href="login.php">
-    	<?php
-    	echo("Account not found, return home")
-    	?>
-    </a>
-    </li>
-    <?php
+    echo($failed);
   }
 
 }
@@ -69,27 +49,11 @@ else {
     //if there is a target
     $_SESSION["ID"] = $row["ID"];
     $_SESSION["ROLE"] = "Patient";
-    ?>
-    <li>
-    <a href="dashboard_patient.php">
-      <?php
-      echo("Log in Successful, click to visit dashboard!")
-      ?>
-    </a>
-    </li>
-    <?php
+    echo($successP);
   }
   else{
     //get the user to try to log in again, redirect to login page
-    ?>
-    <li>
-    <a href="login.php">
-      <?php
-      echo("Account not found, return home")
-      ?>
-    </a>
-    </li>
-    <?php
+    echo($failed);
   }
 
 }
