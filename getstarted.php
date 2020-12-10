@@ -84,7 +84,7 @@
                     </fieldset>
                     <fieldset class="flexbox" >
                       <!--We dont have a variable for assigned doctor in signup -->
-                    <label for="Assigned">Assigned Doctor / Clinic</label>
+                    <label for="Assigned">Doctors Email</label>
                     <input class="flexChild" type="text" name="Assigned" required />
                     <label for="PhoneNumber">Phone Number</label>
                     <input class="flexChild" type="text" name="PhoneNumber" required />
