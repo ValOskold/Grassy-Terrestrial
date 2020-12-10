@@ -33,23 +33,23 @@ $stmt = $pdo->prepare(
 
 $stmt->execute();
 
-
 //test for error, and return stats_dens_pmf_hypergeometric
 if ($stmt->errorInfo()[0] === "00000"){
-	echo("Thank you for registering!");
+  //echo("Thank you for registering!");
+  ?>
+  <script>
+    alert("Account Created! Please Login.");
+    window.location.replace("login.php");
+  </script>
+  <?php
 }
 else {
-	echo ("user failed to add try again");
+  //echo ("user failed to add try again");
+  ?>
+  <script>
+    alert("User failed to add! Please try again.");
+    window.location.replace("getstarted.php");
+  </script>
+  <?php
 }
-
-
-//add an anchor that takes me back to the landing page
-
 ?>
-<li>
-<a href="index.html">
-	<?php
-	echo("Click Me to Return to the Landing Page!")
-	?>
-</a>
-</li>
