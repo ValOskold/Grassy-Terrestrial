@@ -12,20 +12,56 @@ if(isset($_SESSION["ID"])){
            <link rel="stylesheet" href="css/dashboard_patient.css" />
        </head>
        <body>
+         <?php
+         //here is where i get the dr info from ID
+         $dsn = "mysql:host=localhost;dbname=healthtrackerapp;charset=utf8mb4";
+
+         $dbusername = "root";
+         $dbpassword = "";
+         $pdo = new PDO($dsn, $dbusername, $dbpassword);
+
+         //i need to get my patiant data
+         $stmtpat = $pdo->prepare("SELECT * FROM `patients`
+         WHERE `ID` = '$_SESSION[ID]'");
+         $stmtpat->execute();
+         $pat = $stmtpat->fetch();
+         if ($stmtpat->errorInfo()[0]=== "00000"){
+           //echo ("Patient Targeted!");
+         }
+
+         //so im a patient with a dr relationship, i need to find that
+         $stmtDRpat = $pdo->prepare("SELECT * FROM `dr-patients`
+         WHERE `PatientID` = '$_SESSION[ID]'");
+         $stmtDRpat->execute();
+         $drpat = $stmtDRpat->fetch();
+         //now that we have a doctor, lets see if they exist
+         if ($stmtDRpat->errorInfo()[0] === "00000"){
+           //now that we know they exists
+           //echo("Relationship was Targeted!");
+
+           $stmtDr = $pdo->prepare("SELECT * FROM `doctors` WHERE `ID` = '$drpat[DrID]'");
+           $stmtDr->execute();
+           $dr = $stmtDr->fetch();
+           if ($stmtDr->errorInfo()[0] === "00000"){
+             //now that we know they exists
+             //echo("Dr was Targeted!");
+           }
+         }
+         ?>
            <!-- fixed header begins -->
            <header>
                <div id=container_header>
                    <!-- clinic information + doctor's name showed in this div -->
-                   <div id="clinicInfo">clinic name | Assigned with Dr.Smith</div>
+                   <div id="clinicInfo">Location : <?php echo($dr['MedicalEstablishment']); ?> | Assigned with Dr.<?php echo($dr['Lname']); ?></div>
                    <!-- logo showed in this div -->
                    <div id="logo2">
                        <img src="images/logo_small.png" alt="logo" />
                    </div>
                    <div id="container_header_right">
                        <!-- date of today showed in this div -->
-                       <div id="date">today's date</div>
+                       <div id="date"><?php echo(date('Y-m-d')); ?></div>
                        <!-- greeting info showed in this div -->
-                       <div id="greeting">Hi, Melanie!</div>
+                       <div id="greeting">Hi, <?php echo($pat['fName']); ?> !</div>
                        <!-- log out button showed in this div -->
                        <div id="logOut"><a href="logout.php">Log Out</a></div>
                    </div>
