@@ -2,8 +2,8 @@
 
 $dsn = "mysql:host=localhost;dbname=howings_healthtrackerapp;charset=utf8mb4";
 
-$dbusername = "howings";
-$dbpassword = "v!8z9afK7&F";
+$dbusername = "howings_group";
+$dbpassword = "pFrxH)9rGdm]";
 $pdo = new PDO($dsn, $dbusername, $dbpassword);
 $admindefault = FALSE;
 
